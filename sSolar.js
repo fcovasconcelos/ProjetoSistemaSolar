@@ -37,7 +37,7 @@ scene.add(solMesh);
 //scene.add(mercuryMesh);
 
 
-const mercurioGeometry = new THREE.BoxGeometry(1);
+const mercurioGeometry = new THREE.BoxGeometry(0.75);
 const mercurioTexture = textureLoader.load("https://www.solarsystemscope.com/textures/download/2k_mercury.jpg");
 const mercurioMaterial = new THREE.MeshBasicMaterial({ color: 0xf0f0f1 });
 const mercurioMesh = new THREE.Mesh(mercurioGeometry, mercurioMaterial);
@@ -46,7 +46,7 @@ mercurioMesh.position.x = 12;
 
 scene.add(mercurioMesh);
 
-const venusGeometry = new THREE.SphereGeometry(1, 32, 32);
+const venusGeometry = new THREE.SphereGeometry(1.5, 32, 32);
 const venusMaterial = new THREE.MeshBasicMaterial({ color: 0xfadd00});
 const venusMesh = new THREE.Mesh(venusGeometry, venusMaterial);
 venusMesh.position.x = 15;
