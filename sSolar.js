@@ -21,12 +21,12 @@ const textureLoader = new THREE.TextureLoader();
 
 //scene.background = textureLoader.load('/public/viaLactea.jpg');
 scene.background = textureLoader.load("https://cdn.eso.org/images/thumb700x/eso0932a.jpg");
-const solTexture = textureLoader.load("sol.jpeg");
+const solTexture = textureLoader.load("https://cdn.pixabay.com/photo/2020/02/04/16/58/map-4818824_1280.jpg");
 
 //const solTexture = new THREE.TextureLoader().load("sol.jpeg");
 const solGeometry = new THREE.SphereGeometry(29, 32, 32);
 
-const solMaterial = new THREE.MeshBasicMaterial({ color: 0xFfff00 });
+const solMaterial = new THREE.MeshBasicMaterial({ map:solTexture });
 //solMaterial.map = solTexture;
 const solMesh = new THREE.Mesh(solGeometry, solMaterial);
 
@@ -48,7 +48,7 @@ mercurioMesh.position.x = 35;
 scene.add(mercurioMesh);
 
 const venusGeometry = new THREE.SphereGeometry(2.5, 32, 32);
-const venusMaterial = new THREE.MeshBasicMaterial({ color: 0xfadd00});
+const venusMaterial = new THREE.MeshBasicMaterial({ color: 0xfadd00 });
 const venusMesh = new THREE.Mesh(venusGeometry, venusMaterial);
 venusMesh.position.x = 45;
 
@@ -126,6 +126,7 @@ camera.position.set(0, 30, 228);
 function animate(){
     requestAnimationFrame(animate);
     //aplicar depois comando abaixo
+    solMesh.rotation.y += 0.002;
     const time1 = mercurioOrbitSpeed * performance.now();
     const t1 = (time1 % Looptime) / Looptime;
     let p1 =curve1.getPoint(t1);
